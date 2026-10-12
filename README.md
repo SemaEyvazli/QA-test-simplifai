@@ -25,6 +25,5 @@ Bu sənəd Smplifai (tələbə qeydiyyatı və sənəd avtomatlaşdırılması) 
   - `bug-reports.md` — Xəta Hesabatları (Bug Reports)
   - `test-report.md` — Yekun Test İcra Hesabatı (Test Execution Report)
 
-## 4. Schedule & Deadlines
-Bütün sənədləşmə və test işləri 5 günlük təqvim çərçivəsində tamamlanmış və GitHub repozitoriyasında ayrıca Markdown faylları şəklində strukturlaşdırılmışdır.
+
  
