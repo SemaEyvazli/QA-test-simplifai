@@ -1,34 +1,30 @@
-# TC-001: Smplifai - My Application Yoxlanması
+# Test Plan: Smplifai Platform
 
-## 📌 Əsas Məlumatlar
-* **Test Case ID:** TC-001  
-* **Title:** Smplifai - "My Application" funksionallığının və backend inteqrasiyasının yoxlanılması  
-* **Prioritet:** High (Yüksək)  
-* **Pre-conditions:**  
-  1. İstifadəçi sistemdə autentifikasiyadan keçib (Bearer token ilə sistemə daxil olunub).  
-  2. Yüklənəcək sənəd faylı yerli diskdə mövcuddur.  
+**Project Name:** Smplifai  
+**Author:** Səmayə Heybətova  
+**Target Repository:** `simplifaiapplicationtestcase`  
 
 ---
 
-## 🧪 UI Test Addımları
+## 1. Introduction & Scope
+Bu sənəd Smplifai (tələbə qeydiyyatı və sənəd avtomatlaşdırılması) platformasının funksional, API və UI testlərinin planlaşdırılması və icrası məqsədilə hazırlanmışdır. Testlərin əsas məqsədi sistemin tələblərə uyğun işləməsini və backend inteqrasiyasının düzgünlüyünü yoxlamaqdır.
 
-| # | Addım | Gözlənilən Nəticə (Expected Result) |
-|---|---|---|
-| **1** | **Smplifai** saytına daxil olub **"New Application"** düyməsinə klik et. | Yeni müraciət forması ekranda açılır. |
-| **2** | `Email` və `Phone` xanalarına valid (doğru) məlumatları daxil et. | Məlumatlar xanalara düzgün daxil olunur. |
-| **3** | **"Choose"** düyməsinə klik et. | Sənəd növünün seçilməsi paneli açılır. |
-| **4** | **"Browse files"** düyməsinə klik edərək faylı seç. | Fayl uğurla seçilir və formaya əlavə olunur. |
-| **5** | **"Next"** düyməsinə klik et. | Ekranda "Document successfully uploaded" bildirişi görünür və müraciət göndərilir. |
+## 2. Test Objectives
+- İstifadəçi qeydiyyatı və giriş (Sign In) funksionallığının yoxlanılması.
+- Yeni müraciət yaratma ("My Application") və fayl yükləmə mexanizminin test edilməsi.
+- API sorğularının (Swagger vasitəsilə müraciətin silinməsi — DELETE) status kodlarının və təhlükəsizlik qadağalarının yoxlanılması.
+- Mobil cihazlarda interfeys (UI) uyğunluğunun təmin edilməsi.
 
----
+## 3. Test Environment
+- **Browser:** Google Chrome (Latest)
+- **OS:** Windows 11
+- **API Tools:** Postman, Swagger UI
+- **Repository Structure:**
+  - `README.md` — Test Plan
+  - `test-cases.md` — Test Ssenariləri (Test Cases)
+  - `bug-reports.md` — Xəta Hesabatları (Bug Reports)
+  - `test-report.md` — Yekun Test İcra Hesabatı (Test Execution Report)
 
-## 🔍 Backend (API Validation - Swagger / Postman)
-
-### 1. Request Detalları
-* **API Docs / Swagger:** Smplifai API Docs  
-* **HTTP Method:** `GET` / `POST`  
-* **Request URL:** `https://smplifai-backend.vercel.app/api/applications`  
-* **Headers:**  
-  ```http
-  Authorization: Bearer <your_token_here>
-  Content-Type: application/json
+## 4. Schedule & Deadlines
+Bütün sənədləşmə və test işləri 5 günlük təqvim çərçivəsində tamamlanmış və GitHub repozitoriyasında ayrıca Markdown faylları şəklində strukturlaşdırılmışdır.
+ 
