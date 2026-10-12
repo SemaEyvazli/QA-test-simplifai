@@ -64,3 +64,29 @@
 - **Status Code:** `401 Unauthorized`
 - **Response Body:** `"message": "Unauthorized"`
 - Verification: Silinməyə cəhd edilən müraciət sistemdə toxunulmaz qalır.
+- ---
+
+## TC-API-GET-001: Bütün Müraciətlərin Siyahısının Əldə Edilməsi (GET Request)
+- **Test Case ID:** TC-API-GET-001
+- **Title:** Smplifai platformasında mövcud müraciətlərin API vasitəsilə (`GET /api/applications`) çəkilməsi
+- **Prioritet:** Medium (Orta)
+- **Pre-conditions:** İstifadəçi sistemdə autentifikasiyadan keçib və aktiv Bearer Token-ə malikdir.
+- **Test Addımları:**
+  1. Postman və ya Swagger UI açılır.
+  2. `GET /api/applications` endpoint-i seçilir.
+  3. Headers hissəsinə aktiv Bearer Token əlavə edilir.
+  4. "Send" düyməsinə kliklənilir.
+- **Gözlənilən Nəticə:** Sistem `200 OK` status kodu qaytarmalı və mövcud tələbə müraciətlərinin siyahısını JSON formatında göstərməlidir.
+
+---
+
+## TC-API-NEG-001: Yanlış ID ilə Müraciətin Silinməsi (Negative API Test)
+- **Test Case ID:** TC-API-NEG-001
+- **Title:** Mövcud olmayan və ya səhv ID ilə DELETE sorğusunun yoxlanılması
+- **Prioritet:** High (Yüksək)
+- **Pre-conditions:** İstifadəçi aktiv tokendən istifadə edir.
+- **Test Addımları:**
+  1. Swagger UI-da `DELETE /api/applications/{id}` seçilir.
+  2. ID xanasına sistemdə mövcud olmayan saxta ID (məsələn, `99999`) yazılır.
+  3. "Send" düyməsinə kliklənilir.
+- **Gözlənilən Nəticə:** Sistem `404 Not Found` xəta kodu və müvafiq xəta mesajı qaytarmalıdır.
