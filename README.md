@@ -1,83 +1,124 @@
-# Test Plan – Smplifai Platforması
+# Bug Report
 
-**Layihə:** Smplifai  
-**Müəllif:** Səmayə Heybətova  
-**Repozitoriya:** `simplifaiapplicationtestcase`  
+## BUG-001
 
----
-
-## 1. Objective 
-Bu Test Planın əsas məqsədi Smplifai tələbə qeydiyyatı və sənəd avtomatlaşdırılması tətbiqinin funksional imkanlarını, istifadəçi interfeysini (UI) və backend API inteqrasiyasını hərtərəfli sınaqdan keçirmək, sistemdəki potensial xətaları aşkar etməkdir.
-
----
-
-## 2. Scope 
-
-### In Scope 
-- **Modul 1:** İstifadəçi qeydiyyatı və sistemə giriş (Sign In) funksionallığı.
-- **Modul 2:** "My Application" bölməsində yeni müraciətin yaradılması, məcburi xanaların yoxlanması və sənəd yükləmə (Browse files).
-- **Modul 3:** API testləri (Swagger / Postman vasitəsilə `DELETE /api/applications/{id}` sorğusunun müsbət və mənfi/təhlükəsizlik senariləri).
-- **Modul 4:** İstifadəçi profil parametrlərinin idarə olunması.
-
-### Out of Scope 
-- Əsas backend verilənlər bazasının (Database) daxili performans testləri.
-- Tətbiqin server infrastrukturu və yük altında dözümlülük (Load/Stress) testləri.
-- Çap avadanlıqları ilə birbaşa inteqrasiya testləri.
-
----
-
-## 3. Test Types 
-
-| Test Type | Description |
+| Field | Value |
 |---|---|
-| **Functional Testing** | Tələbə qeydiyyatı, müraciət formalarının doldurulması və sənəd yükləmə funksiyalarının doğrulanması. |
-| **API Testing** | Swagger UI vasitəsilə Bearer Token ilə avtorizasiya və müraciətlərin silinməsi (DELETE) sorğularının test edilməsi. |
-| **Negative Testing** | Yanlış məlumatlar daxil edildikdə və ya avtorizasiya tokeni olmadan API-yə müraciət edildikdə sistemin verdiyi cavabların (401 Unauthorized) yoxlanması. |
-| **UI / UX Testing** | Səhifələrdəki düymələrin, mətn xanalarının və formaların fərqli ekran ölçülərində (masaüstü və mobil) vizual düzgünlüyü. |
-| **Regression Testing** | Aşkar edilmiş BUG-001, BUG-002 və BUG-003 xətaları düzəldildikdən sonra sistemin digər hissələrinin pozulmadığını yoxlamaq. |
+| **Bug ID** | BUG-001 |
+| **Title** | Şifrə sıfırlama linki/e-poçtu istifadəçiyə getmir |
+| **Project** | Smplifai website |
+| **Module** | Password Reset |
+| **Browser** | Chrome |
+| **OS** | Windows 11 |
+| **Severity** | High |
+| **Priority** | High |
+| **Status** | Open |
+
+### Preconditions
+
+1. İstifadəçinin aktiv hesabı var.
+2. İstifadəçi şifrə sıfırlama səhifəsindədir.
+
+### Steps
+
+1. Smplifai linkini açın.
+2. "Forgot password" buttonuna klikləyin.
+3. Qeydiyyatdan keçdiyiniz valid e-poçt ünvanını (smaeyvazli@mail.ru) daxil edin.
+4. "Terms of Use" xanasını işarələyin.
+5. "Reset password" buttonuna klikləyin.
+6. Həmin e-poçt ünvanını yoxlayın.
+
+### Actual Result
+
+Sistem istifadəçinin e-poçt ünvanına şifrə sıfırlama ilə bağlı heç bir məktub və ya keçid linki göndərmir.
+
+### Expected Result
+
+Sistem şifrə sıfırlama e-poçtunu göndərməli və "Şifrə sıfırlama linki e-poçtunuza göndərildi" mesajı göstərməlidir.
+
+### Attachments
+
+- Screenshot
+- Video recording
 
 ---
 
-## 4. Test Environment
+## BUG-002
 
-| Komponent | Məlumat / Alət |
+| Field | Value |
 |---|---|
-| **Əməliyyat Sistemi** | Windows 11 |
-| **Brauzerlər** | Google Chrome (Son versiya) |
-| **API Test Alətləri** | Postman, Swagger UI |
-| **Sənədləşmə Aləti** | GitHub Markdown, Visual Studio Code |
+| **Bug ID** | BUG-002 |
+| **Title** | Profil şəkli hesabdan çıxış edib yenidən daxil olduqda silinir. |
+| **Project** | Smplifai |
+| **Module** | Profil |
+| **Browser** | Chrome |
+| **OS** | Windows 11 |
+| **Severity** | Medium |
+| **Priority** | Medium |
+| **Status** | Open |
+
+### Preconditions
+
+1. İstifadəçi öz hesabına daxil olub.
+
+### Steps
+
+1. Smplifai linkini açın və hesaba daxil olun.
+2. Profile Settings bölməsinə keçin.
+3. Yeni profil şəkli JPG formatında yükləyin.
+4. "Save changes" buttonuna klikləyin.
+5. Hesabdan çıxış (Log out) edin.
+6. Yenidən hesaba daxil olun və profil səhifəsinə keçin.
+
+### Actual Result
+
+Yüklənmiş profil şəkli silinir və onun yerində sistemin standart boş profil iconu görünür.
+
+### Expected Result
+
+Yüklənmiş profil şəkli yenidən daxil olduqda istifadəçiyə görünməlidir.
+
+### Attachments
+
+- Screenshot
 
 ---
 
-## 5. Entry Criteria 
-Test prosesi aşağıdakı şərtlər ödənildikdə başlayır:
-* Smplifai tətbiqinin QA mühiti və aktiv test versiyası (build) hazır olduqda.
-* Test ssenariləri (`test-cases.md`) və yoxlama siyahısı hazırlanıb təsdiqləndikdə.
-* API endpoint-ləri və Swagger dokumentasiyası əlçatan olduqda.
+## BUG-003
 
----
+| Field | Value |
+|---|---|
+| **Bug ID** | BUG-003 |
+| **Title** | Səhifə mobil cihazlarda düzgün açılmır, bəzi buttonlar və panellər görünmür. |
+| **Project** | Smplifai website |
+| **Module** | Saytin dizayninin mobil telefon ve kompyuterlerde eyni gorunmesi. |
+| **Browser** | Chrome Mobile |
+| **OS** | Android |
+| **Severity** | High |
+| **Priority** | High |
+| **Status** | Open |
 
-## 6. Exit Criteria
-Test prosesi aşağıdakı nəticələr əldə edildikdə tamamlanmış sayılır:
-* Yazılmış bütün 4 test keysi tam icra olunduqda.
-* Yüksək və kritik prioritetli (High/Critical) açıq xətalar qalmadıqda.
-* Yekun test hesabatı (`test-report.md`) hazırlanaraq repozitoriyaya əlavə edildikdə.
+### Preconditions
 
----
+- Istifadechi mobil cihaz brauzerindən daxil olub.
+- Istifadechi Smplifai saytinin əsas səhifəsindədir.
 
-## 7. Risks & Mitigation
+### Steps
 
-| Risk | Impact |  Mitigation |
-|---|---|---|
-| **API Tokenlərin vaxtının bitməsi** | Sorğuların 401 Unauthorized xətası verməsi və API testlərinin dayanması. | Testdən əvvəl Postman və Swagger üzərində Bearer Token-in yenilənməsini təmin etmək. |
-| **Fayl yükləmə zamanı format xətaları** | Tələbə sənəd yükləyərkən sistemin faylı qəbul etməməsi. | Test keyslərdə dəstəklənən fayl formatlarını (PDF, JPG, PNG) əvvəlcədən dəqiq müəyyən etmək. |
+1. Mobil cihazda brauzeri açın.
+2. Smplifai saytinin sehifesine daxil olun.
+3. Kompyuter(desktop) versiyası ilə müqayisə edin.
+4. Səhifədəki panellərə və idareetme buttonlarina (menyu, təsdiqləmə ve ya kechid buttonlarina) diqqət edin.
+5. Görünməyən panellerin yerləşdiyi hissələri yoxlayın.
 
----
+### Actual Result
 
-## 8. Deliverables 
-- `README.md` — Əsas Test Planı
-- `test-cases.md` — Test Ssenariləri
-- `bug-reports.md` — Xəta Hesabatları Cədvəli
-- `test-report.md` — Yekun Test İcra Hesabatı
+Səhifənin dizaynı mobil ekrana uyğunlaşmır. Mühüm panellər və buttonlar ekrandan kənara çıxır və ya tamamilə istifadəçi üçün görünməz olur.
 
- 
+### Expected Result
+
+Səhifənin bütün elementləri (buttonlar, panellər, yazılar) mobil ekran ölçülərinə tam uyğunlaşmalı və istifadəçi asanlıqla hər bir buttona klikləyə bilməlidir.
+
+### Attachments
+
+- Mobile Screenshot
